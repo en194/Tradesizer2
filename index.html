@@ -1,96 +1,287 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name="theme-color" content="#172033">
-<title>TradeSizer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111f">
+<title>Enoch Einstein FX</title>
 <style>
+:root{--bg:#07111f;--card:#0d1b2d;--card2:#10233a;--line:#203650;--text:#f5f8fc;--muted:#8ea1b8;--green:#37e6a4;--blue:#4da3ff}
 *{box-sizing:border-box}
-body{margin:0;background:#f4f7fb;font-family:Arial,sans-serif;color:#172033}
-.app{max-width:520px;margin:auto;padding:18px}
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-h1{font-size:24px;margin:0}.tag{font-size:12px;color:#667085}
-.card{background:#fff;border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 4px 16px rgba(0,0,0,.07)}
-label{font-size:13px;font-weight:700;display:block;margin:10px 0 5px}
-input{width:100%;padding:13px;border:1px solid #d0d5dd;border-radius:11px;font-size:17px}
+body{margin:0;background:radial-gradient(circle at 15% 0%,#173653,transparent 32%),radial-gradient(circle at 90% 15%,#123a35,transparent 28%),var(--bg);font-family:Arial,sans-serif;color:var(--text)}
+.app{max-width:560px;margin:auto;padding:18px 16px 35px}
+.header{padding:10px 4px 18px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--blue),var(--green));display:grid;place-items:center;color:#03111a;font-weight:900;font-size:19px}
+h1{font-size:23px;margin:0}
+.sub{font-size:12px;color:var(--muted);margin-top:3px}
+.badge{margin-left:auto;color:var(--green);border:1px solid #28604f;padding:7px 9px;border-radius:20px;font-size:10px;font-weight:bold}
+.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:21px;padding:17px;margin-bottom:13px;box-shadow:0 15px 40px #0005}
+.title{font-size:14px;font-weight:bold;margin-bottom:10px}
+label{display:block;color:var(--muted);font-size:10px;font-weight:bold;margin:9px 0 5px;text-transform:uppercase}
+input,select{width:100%;padding:13px 12px;border-radius:12px;border:1px solid #28415c;background:#081625;color:white;font-size:16px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-button{width:100%;padding:14px;border:0;border-radius:12px;font-weight:800;font-size:16px;background:#172033;color:white;margin-top:12px}
-.result{background:#eef7ee}.lot{font-size:38px;font-weight:900;margin:4px 0 12px}
-.row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #e5e7eb}
-.row:last-child{border:0}.small{font-size:12px;color:#667085;line-height:1.45}
-.warning{background:#fff7e6}.pill{padding:5px 9px;border-radius:999px;background:#eef2f6;font-size:12px;font-weight:700}
+button{width:100%;padding:15px;border:0;border-radius:14px;background:linear-gradient(100deg,var(--blue),var(--green));color:#03111a;font-size:15px;font-weight:900;margin-top:14px}
+.status{font-size:11px;color:var(--muted);padding:9px;margin-top:10px;border-radius:10px;background:#081625}
+.result{border-color:#245c4d;background:linear-gradient(145deg,#0d2b2a,#0b1d2e)}
+.smalllabel{font-size:11px;color:#a9bacb}
+.lot{font-size:45px;font-weight:900;margin:8px 0 15px}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.metric{background:#04101c99;border:1px solid #204039;border-radius:13px;padding:11px}
+.metric span{display:block;color:var(--muted);font-size:9px;margin-bottom:5px}
+.metric strong{font-size:15px}
+.green{color:var(--green)}
+.note{font-size:11px;color:var(--muted);line-height:1.5}
+.footer{text-align:center;color:#60758c;font-size:10px;padding:8px}
 </style>
 </head>
+
 <body>
 <div class="app">
-<div class="top">
-<div><h1>TradeSizer</h1><div class="tag">Daily position-size calculator</div></div>
-<span class="pill">1 : 3</span>
+
+<div class="header">
+<div class="brand">
+<div class="logo">EE</div>
+<div>
+<h1>Enoch Einstein FX</h1>
+<div class="sub">Smart position sizing for disciplined traders</div>
+</div>
+<div class="badge">LIVE FX</div>
+</div>
 </div>
 
 <div class="card">
+<div class="title">Trade Setup</div>
+
 <label>Instrument</label>
-<input id="symbol" value="EURUSD" placeholder="e.g. EURUSD or XAUUSD">
+<select id="symbol">
+<option>EURUSD</option>
+<option>GBPUSD</option>
+<option>USDJPY</option>
+<option>USDCHF</option>
+<option>AUDUSD</option>
+<option>USDCAD</option>
+<option>NZDUSD</option>
+<option>EURGBP</option>
+<option>EURJPY</option>
+<option>GBPJPY</option>
+<option>EURCHF</option>
+<option>GBPCHF</option>
+<option>AUDJPY</option>
+<option>CADJPY</option>
+<option>NZDJPY</option>
+<option>XAUUSD</option>
+</select>
 
 <div class="grid">
-<div><label>Risk ($)</label><input id="risk" type="number" value="30" step="0.01"></div>
-<div><label>Stop Loss (pips)</label><input id="sl" type="number" value="10" step="0.1"></div>
+<div>
+<label>Risk ($)</label>
+<input id="risk" type="number" value="30">
+</div>
+<div>
+<label>Stop Loss (pips)</label>
+<input id="sl" type="number" value="10">
+</div>
 </div>
 
 <div class="grid">
-<div><label>Take Profit (pips)</label><input id="tp" type="number" value="30" step="0.1"></div>
-<div><label>Pip value / 1 lot ($)</label><input id="pip" type="number" value="10" step="0.0001"></div>
+<div>
+<label>Take Profit (pips)</label>
+<input id="tp" type="number" value="30">
+</div>
+<div>
+<label>Account Currency</label>
+<select id="acct">
+<option>USD</option>
+<option>EUR</option>
+<option>GBP</option>
+</select>
+</div>
 </div>
 
-<div class="grid">
-<div><label>Lot step</label><input id="step" type="number" value="0.01" step="0.01"></div>
-<div><label>Minimum lot</label><input id="min" type="number" value="0.01" step="0.01"></div>
+<div id="status" class="status">
+Ready — enter your trade parameters.
 </div>
 
-<button onclick="calc()">CALCULATE LOT SIZE</button>
+<button onclick="calculate()">⚡ CALCULATE POSITION SIZE</button>
+</div>
 
 <div class="card result">
-<div>Recommended lot size</div>
-<div class="lot" id="lot">0.30</div>
-<div class="row"><span>Required $ / pip</span><strong id="pp">$3.00</strong></div>
-<div class="row"><span>Actual risk</span><strong id="ar">$30.00</strong></div>
-<div class="row"><span>Potential profit</span><strong id="pr">$90.00</strong></div>
-<div class="row"><span>Risk : Reward</span><strong id="rr">1 : 3.00</strong></div>
+<div class="smalllabel">RECOMMENDED POSITION SIZE</div>
+<div id="lot" class="lot">—</div>
+
+<div class="metrics">
+<div class="metric">
+<span>CURRENT PRICE</span>
+<strong id="price">—</strong>
 </div>
 
-<div class="card warning">
-<strong>⚠️ Remember</strong>
-<p class="small">The pip value must match your broker and instrument. For XAUUSD, indices and CFDs, use the MT5 symbol specification/tick value. Do not assume forex pip values apply to gold.</p>
+<div class="metric">
+<span>PIP VALUE / 1 LOT</span>
+<strong id="pipvalue">—</strong>
+</div>
+
+<div class="metric">
+<span>ACTUAL RISK</span>
+<strong id="actualrisk">—</strong>
+</div>
+
+<div class="metric">
+<span>POTENTIAL PROFIT</span>
+<strong id="profit">—</strong>
+</div>
+</div>
 </div>
 
 <div class="card">
-<strong>Daily routine</strong>
-<p class="small">1. Decide your maximum dollar risk → 2. Measure your SL → 3. Enter the correct pip value → 4. Calculate → 5. Use the displayed lot size in MT5.</p>
+<div class="title">Trade Intelligence</div>
+
+<div class="metrics">
+<div class="metric">
+<span>RISK / PIP</span>
+<strong id="riskpip">—</strong>
 </div>
+
+<div class="metric">
+<span>RISK : REWARD</span>
+<strong class="green" id="rr">1 : 3.00</strong>
+</div>
+</div>
+</div>
+
+<div id="gold" class="card">
+<div class="title">⚠️ XAUUSD</div>
+<div class="note">
+Gold uses broker-specific tick and contract specifications.
+For XAUUSD, always check your MT5 symbol specification rather than
+using a normal forex pip calculation.
+</div>
+</div>
+
+<div class="card">
+<div class="title">Professional Rule</div>
+<div class="note">
+Set your maximum dollar risk first. Then define your stop-loss distance.
+Your position size should adapt to the stop-loss — not the other way around.
+Live FX rates may differ slightly from your broker's MT5 price.
+</div>
+</div>
+
+<div class="footer">
+ENOCH EINSTEIN FX • TRADE WITH A PLAN, NOT EMOTION.
+</div>
+
 </div>
 
 <script>
-function v(id){return parseFloat(document.getElementById(id).value)||0}
-function money(x){return '$'+x.toFixed(2)}
-function calc(){
- const risk=v('risk'),sl=v('sl'),tp=v('tp'),pip=v('pip'),step=v('step'),min=v('min');
- if(risk<=0||sl<=0||tp<=0||pip<=0||step<=0||min<=0){alert('Please enter positive values.');return}
- const required=risk/sl,raw=required/pip;
- let lot=Math.max(min,Math.floor((raw+1e-10)/step)*step);
- lot=Number(lot.toFixed(8));
- document.getElementById('lot').textContent=lot.toFixed(2);
- document.getElementById('pp').textContent=money(required);
- document.getElementById('ar').textContent=money(lot*sl*pip);
- document.getElementById('pr').textContent=money(lot*tp*pip);
- document.getElementById('rr').textContent='1 : '+(tp/sl).toFixed(2);
- localStorage.setItem('tradesizer',JSON.stringify({risk,sl,tp,pip,step,min,symbol:document.getElementById('symbol').value}));
+const API="https://open.er-api.com/v6/latest/";
+
+async function rates(currency){
+const response=await fetch(API+currency,{cache:"no-store"});
+const data=await response.json();
+if(data.result!=="success")throw new Error("Rate service unavailable");
+return data.rates;
 }
-(function(){
- const s=localStorage.getItem('tradesizer');
- if(s){try{const x=JSON.parse(s);Object.keys(x).forEach(k=>{if(document.getElementById(k))document.getElementById(k).value=x[k]})}catch(e){}}
- calc();
-})();
+
+async function convert(value,from,to){
+if(from===to)return value;
+const r=await rates(from);
+return value*r[to];
+}
+
+async function calculate(){
+
+const symbol=document.getElementById("symbol").value;
+const risk=Number(document.getElementById("risk").value);
+const sl=Number(document.getElementById("sl").value);
+const tp=Number(document.getElementById("tp").value);
+const account=document.getElementById("acct").value;
+
+if(risk<=0||sl<=0||tp<=0){
+alert("Enter positive values.");
+return;
+}
+
+if(symbol==="XAUUSD"){
+document.getElementById("status").textContent=
+"XAUUSD needs broker-specific tick and contract information.";
+return;
+}
+
+try{
+
+document.getElementById("status").textContent=
+"Fetching current FX rate...";
+
+const base=symbol.substring(0,3);
+const quote=symbol.substring(3,6);
+
+const r=await rates(base);
+const price=r[quote];
+
+const pipSize=quote==="JPY"?0.01:0.0001;
+
+const pipValueQuote=pipSize*100000;
+
+const pipValueAccount=
+await convert(pipValueQuote,quote,account);
+
+const moneyPerPip=risk/sl;
+
+const rawLot=moneyPerPip/pipValueAccount;
+
+const lot=Math.max(
+0.01,
+Math.floor(rawLot/0.01)*0.01
+);
+
+const actualRisk=lot*sl*pipValueAccount;
+
+const potentialProfit=
+lot*tp*pipValueAccount;
+
+document.getElementById("lot").textContent=
+lot.toFixed(2)+" LOT";
+
+document.getElementById("price").textContent=
+price.toFixed(5);
+
+document.getElementById("pipvalue").textContent=
+account+" "+pipValueAccount.toFixed(4);
+
+document.getElementById("actualrisk").textContent=
+account+" "+actualRisk.toFixed(2);
+
+document.getElementById("profit").textContent=
+account+" "+potentialProfit.toFixed(2);
+
+document.getElementById("riskpip").textContent=
+account+" "+moneyPerPip.toFixed(2);
+
+document.getElementById("rr").textContent=
+"1 : "+(tp/sl).toFixed(2);
+
+document.getElementById("status").textContent=
+"✓ Live FX rate updated at "+
+new Date().toLocaleTimeString();
+
+}catch(error){
+
+document.getElementById("status").textContent=
+"Unable to fetch live FX rates.";
+
+}
+}
+
+document.getElementById("symbol").addEventListener("change",function(){
+document.getElementById("gold").style.display=
+this.value==="XAUUSD"?"block":"none";
+});
+
+document.getElementById("gold").style.display="none";
+
+calculate();
 </script>
+
 </body>
 </html>
