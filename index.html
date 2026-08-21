@@ -2,22 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#07111f">
 
 <title>Enoch Einstein FX</title>
 
 <style>
+
 :root{
 --bg:#07111f;
 --card:#0d1b2d;
 --card2:#10233a;
 --line:#203650;
 --text:#f5f8fc;
---muted:#91a3b8;
---green:#39e6a5;
+--muted:#8ea1b8;
+--green:#37e6a4;
 --blue:#4da3ff;
---danger:#ff6b6b;
+--red:#ff6678;
 }
 
 *{
@@ -26,25 +27,22 @@ box-sizing:border-box;
 
 body{
 margin:0;
-min-height:100vh;
-color:var(--text);
-font-family:Arial,Helvetica,sans-serif;
 background:
-radial-gradient(650px 330px at 0 -10%,#173653,transparent 60%),
-radial-gradient(600px 330px at 100% 0,#123a35,transparent 60%),
+radial-gradient(circle at 15% 0%,#173653,transparent 32%),
+radial-gradient(circle at 90% 15%,#123a35,transparent 28%),
 var(--bg);
+font-family:Arial,sans-serif;
+color:var(--text);
 }
 
 .app{
-width:min(100%,560px);
+max-width:560px;
 margin:auto;
-padding:18px 15px 32px;
+padding:18px 16px 35px;
 }
 
-/* HEADER */
-
 .header{
-padding:7px 2px 18px;
+padding:10px 4px 18px;
 }
 
 .brand{
@@ -56,199 +54,132 @@ gap:12px;
 .logo{
 width:48px;
 height:48px;
-border-radius:16px;
+border-radius:15px;
+background:linear-gradient(135deg,var(--blue),var(--green));
 display:grid;
 place-items:center;
-font-weight:950;
-font-size:17px;
-color:#04111b;
-background:linear-gradient(135deg,var(--blue),var(--green));
-box-shadow:0 10px 30px #39e6a522;
+color:#03111a;
+font-weight:900;
+font-size:19px;
 }
 
-.brand h1{
-font-size:21px;
-line-height:1.1;
+h1{
+font-size:23px;
 margin:0;
 }
 
-.brand p{
-margin:5px 0 0;
+.sub{
+font-size:12px;
 color:var(--muted);
-font-size:11px;
+margin-top:3px;
 }
 
-.live{
+.badge{
 margin-left:auto;
-display:flex;
-align-items:center;
-gap:6px;
-border:1px solid #22503f;
-background:#0b201b;
 color:var(--green);
+border:1px solid #28604f;
 padding:7px 9px;
-border-radius:999px;
-font-size:9px;
-font-weight:900;
+border-radius:20px;
+font-size:10px;
+font-weight:bold;
 }
-
-.dot{
-width:6px;
-height:6px;
-background:var(--green);
-border-radius:50%;
-box-shadow:0 0 10px var(--green);
-}
-
-/* CARDS */
 
 .card{
-background:linear-gradient(
-180deg,
-#10233af7,
-#0a1726f7
-);
+background:linear-gradient(180deg,var(--card2),var(--card));
 border:1px solid var(--line);
-border-radius:22px;
-padding:16px;
-margin-bottom:12px;
-box-shadow:0 20px 55px #00000047;
-}
-
-.head{
-display:flex;
-justify-content:space-between;
-align-items:center;
+border-radius:21px;
+padding:17px;
 margin-bottom:13px;
+box-shadow:0 15px 40px #0005;
 }
 
 .title{
-font-size:13px;
-font-weight:850;
+font-size:14px;
+font-weight:bold;
+margin-bottom:10px;
 }
-
-.caption{
-font-size:10px;
-color:var(--muted);
-}
-
-/* INPUTS */
 
 label{
 display:block;
-margin:10px 0 6px;
-color:#a7b6c8;
-font-size:9px;
-font-weight:850;
-letter-spacing:.65px;
+color:var(--muted);
+font-size:10px;
+font-weight:bold;
+margin:9px 0 5px;
 text-transform:uppercase;
 }
 
 input,
 select{
 width:100%;
-height:47px;
-padding:0 12px;
-border-radius:13px;
-border:1px solid #263b53;
-background:#071523;
-color:var(--text);
-font-size:15px;
+padding:13px 12px;
+border-radius:12px;
+border:1px solid #28415c;
+background:#081625;
+color:white;
+font-size:16px;
 outline:none;
 }
 
 input:focus,
 select:focus{
 border-color:var(--blue);
-box-shadow:0 0 0 3px #4da3ff1a;
 }
 
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:9px;
+gap:10px;
 }
-
-/* BUTTON */
 
 button{
 width:100%;
-height:50px;
-margin-top:13px;
+padding:15px;
 border:0;
 border-radius:14px;
-background:linear-gradient(
-100deg,
-var(--blue),
-var(--green)
-);
+background:linear-gradient(100deg,var(--blue),var(--green));
 color:#03111a;
-font-size:13px;
-font-weight:950;
-letter-spacing:.2px;
-box-shadow:0 10px 26px #39e6a51f;
+font-size:15px;
+font-weight:900;
+margin-top:14px;
+cursor:pointer;
 }
 
 button:active{
 transform:scale(.98);
 }
 
-/* STATUS */
+.secondary-btn{
+background:#10263b;
+color:var(--text);
+border:1px solid #29435e;
+font-size:13px;
+padding:12px;
+margin-top:10px;
+}
 
 .status{
-margin-top:9px;
-padding:9px 10px;
-border-radius:11px;
-background:#071523;
-border:1px solid #172b41;
+font-size:11px;
 color:var(--muted);
-font-size:10px;
+padding:9px;
+margin-top:10px;
+border-radius:10px;
+background:#081625;
 }
 
-.ok{
-color:var(--green);
-border-color:#1c4b3d;
+.result{
+border-color:#245c4d;
+background:linear-gradient(145deg,#0d2b2a,#0b1d2e);
 }
 
-/* RESULT */
-
-.hero{
-border-color:#225343;
-background:
-linear-gradient(
-145deg,
-#0f322ff7,
-#091b28f7
-);
-}
-
-.heroTop{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.eyebrow{
-font-size:9px;
-font-weight:900;
-color:#a9bfca;
-letter-spacing:.8px;
-}
-
-.rr{
-font-size:9px;
-font-weight:950;
-color:var(--green);
-border:1px solid #28624f;
-padding:6px 8px;
-border-radius:999px;
+.smalllabel{
+font-size:11px;
+color:#a9bacb;
 }
 
 .lot{
-font-size:43px;
-font-weight:950;
-letter-spacing:-1.5px;
-margin:7px 0 17px;
+font-size:45px;
+font-weight:900;
+margin:8px 0 15px;
 }
 
 .metrics{
@@ -258,92 +189,219 @@ gap:8px;
 }
 
 .metric{
-padding:11px;
+background:#04101c99;
+border:1px solid #204039;
 border-radius:13px;
-background:#020c157a;
-border:1px solid #3c5f6a73;
+padding:11px;
 }
 
 .metric span{
 display:block;
-color:#7f94aa;
-font-size:8px;
-font-weight:800;
-letter-spacing:.5px;
+color:var(--muted);
+font-size:9px;
 margin-bottom:5px;
 }
 
 .metric strong{
-font-size:13px;
+font-size:15px;
 }
 
-/* WARNING */
-
-.alert{
-border-color:#514329;
-background:
-linear-gradient(
-145deg,
-#211c10,
-#111b25
-);
-}
-
-.alert .title{
-color:#f2ca70;
+.green{
+color:var(--green);
 }
 
 .note{
+font-size:11px;
 color:var(--muted);
-font-size:10px;
-line-height:1.55;
+line-height:1.5;
 }
-
-/* FOOTER */
 
 .footer{
 text-align:center;
-color:#5e7288;
+color:#60758c;
+font-size:10px;
+padding:8px;
+}
+
+.riskbox{
+margin-top:10px;
+padding:12px;
+border-radius:13px;
+background:#071b1b;
+border:1px solid #245c4d;
+}
+
+.riskbox span{
+display:block;
 font-size:9px;
-padding-top:4px;
+color:var(--muted);
+margin-bottom:4px;
+text-transform:uppercase;
 }
 
-/* SMALL PHONES */
-
-@media(max-width:360px){
-
-.app{
-padding:14px 11px 25px;
+.riskbox strong{
+font-size:20px;
+color:var(--green);
 }
 
-.logo{
-width:43px;
-height:43px;
+/* =========================
+   MY PAIRS
+========================= */
+
+.my-pairs-box{
+background:#081625;
+border:1px solid #203650;
 border-radius:14px;
+padding:12px;
+margin-bottom:12px;
 }
 
-.brand h1{
-font-size:18px;
+.my-pairs-header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
 }
 
-.live{
-font-size:8px;
-padding:6px 7px;
+.my-pairs-title{
+font-size:11px;
+font-weight:bold;
+color:var(--muted);
+text-transform:uppercase;
+}
+
+.manage-link{
+background:none;
+border:0;
+padding:0;
+margin:0;
+width:auto;
+color:var(--blue);
+font-size:11px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.quick-pairs{
+display:flex;
+gap:7px;
+flex-wrap:wrap;
+margin-top:10px;
+}
+
+.quick-pair{
+width:auto;
+margin:0;
+padding:9px 12px;
+border-radius:10px;
+background:#10283d;
+border:1px solid #28445e;
+color:white;
+font-size:12px;
+font-weight:bold;
+}
+
+.quick-pair.active{
+background:linear-gradient(100deg,#1c5278,#155e4b);
+border-color:var(--green);
+color:var(--green);
+}
+
+/* =========================
+   PAIR MANAGER
+========================= */
+
+.pair-manager{
+display:none;
+margin-top:12px;
+background:#081625;
+border:1px solid #203650;
+border-radius:15px;
+padding:13px;
+}
+
+.pair-manager.show{
+display:block;
+}
+
+.manager-note{
+font-size:10px;
+line-height:1.5;
+color:var(--muted);
+margin-bottom:12px;
+}
+
+.pair-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:7px;
+}
+
+.pair-option{
+display:flex;
+align-items:center;
+gap:8px;
+padding:10px;
+border-radius:10px;
+background:#0d1e30;
+border:1px solid #203650;
+font-size:11px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.pair-option input{
+width:17px;
+height:17px;
+accent-color:var(--green);
+}
+
+.selection-count{
+font-size:10px;
+color:var(--green);
+margin-top:10px;
+}
+
+.save-pairs{
+margin-top:10px;
+padding:12px;
+font-size:12px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:380px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.pair-grid{
+grid-template-columns:1fr 1fr;
 }
 
 .lot{
-font-size:36px;
+font-size:38px;
 }
 
 }
+
 </style>
 </head>
 
+
 <body>
 
-<main class="app">
+<div class="app">
 
-<header class="header">
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<div class="header">
 
 <div class="brand">
 
@@ -352,36 +410,107 @@ EE
 </div>
 
 <div>
+
 <h1>Enoch Einstein FX</h1>
-<p>Smart position sizing for disciplined traders</p>
+
+<div class="sub">
+Smart position sizing for disciplined traders
 </div>
 
-<div class="live">
-<i class="dot"></i>
+</div>
+
+<div class="badge">
 LIVE FX
 </div>
 
 </div>
 
-</header>
+</div>
 
 
-<!-- TRADE SETUP -->
 
-<section class="card">
+<!-- =========================
+     TRADE SETUP
+========================= -->
 
-<div class="head">
+<div class="card">
 
 <div class="title">
 Trade Setup
 </div>
 
-<div class="caption">
-Risk first. Size second.
+
+<!-- MY PAIRS -->
+
+<div class="my-pairs-box">
+
+<div class="my-pairs-header">
+
+<div class="my-pairs-title">
+My Trading Pairs
 </div>
+
+<button
+class="manage-link"
+onclick="togglePairManager()"
+>
+Manage
+</button>
 
 </div>
 
+
+<div
+id="quickPairs"
+class="quick-pairs"
+>
+</div>
+
+
+<!-- PAIR MANAGER -->
+
+<div
+id="pairManager"
+class="pair-manager"
+>
+
+<div class="manager-note">
+
+Select up to <strong>4 pairs</strong> that you regularly trade.
+Your selection will be saved on this device.
+
+</div>
+
+
+<div
+id="pairGrid"
+class="pair-grid"
+>
+</div>
+
+
+<div
+id="selectionCount"
+class="selection-count"
+>
+0 / 4 selected
+</div>
+
+
+<button
+class="save-pairs"
+onclick="saveMyPairs()"
+>
+✓ SAVE MY PAIRS
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- INSTRUMENT -->
 
 <label>
 Instrument
@@ -389,47 +518,71 @@ Instrument
 
 <select id="symbol">
 
-<option>EURUSD</option>
-<option>GBPUSD</option>
-<option>USDJPY</option>
-<option>USDCHF</option>
-<option>AUDUSD</option>
-<option>USDCAD</option>
-<option>NZDUSD</option>
-
-<option>EURGBP</option>
-<option>EURJPY</option>
-<option>GBPJPY</option>
-<option>EURCHF</option>
-<option>GBPCHF</option>
-
-<option>AUDJPY</option>
-<option>CADJPY</option>
-<option>NZDJPY</option>
-
-<option>XAUUSD</option>
+<!-- MY PAIRS WILL BE INSERTED HERE -->
 
 </select>
 
+
+
+<!-- ACCOUNT -->
 
 <div class="grid">
 
 <div>
 
 <label>
-Risk ($)
+Account Balance ($)
 </label>
 
 <input
-id="risk"
+id="balance"
 type="number"
-value="30"
-min=".01"
-step=".01"
+value="100000"
+min="0"
+step="0.01"
+placeholder="Enter account balance"
 >
 
 </div>
 
+
+<div>
+
+<label>
+Risk Per Trade
+</label>
+
+<input
+type="text"
+value="0.3%"
+readonly
+>
+
+</div>
+
+</div>
+
+
+
+<!-- AUTOMATIC RISK -->
+
+<div class="riskbox">
+
+<span>
+Automatic Risk Amount
+</span>
+
+<strong id="riskAmount">
+$300.00
+</strong>
+
+</div>
+
+
+
+<!-- SL / TP -->
+
+<div class="grid">
 
 <div>
 
@@ -441,16 +594,12 @@ Stop Loss (pips)
 id="sl"
 type="number"
 value="10"
-min=".1"
-step=".1"
+min="0"
+step="0.1"
 >
 
 </div>
 
-</div>
-
-
-<div class="grid">
 
 <div>
 
@@ -462,14 +611,17 @@ Take Profit (pips)
 id="tp"
 type="number"
 value="30"
-min=".1"
-step=".1"
+min="0"
+step="0.1"
 >
 
 </div>
 
+</div>
 
-<div>
+
+
+<!-- ACCOUNT CURRENCY -->
 
 <label>
 Account Currency
@@ -483,46 +635,36 @@ Account Currency
 
 </select>
 
-</div>
-
-</div>
 
 
 <div
 id="status"
 class="status"
 >
-Ready — enter your trade parameters.
+Ready — enter your account balance and trade parameters.
 </div>
 
 
-<button id="calculate">
-CALCULATE POSITION SIZE
+
+<button onclick="calculate()">
+
+⚡ CALCULATE POSITION SIZE
+
 </button>
 
-</section>
+</div>
 
 
 
-<!-- MAIN RESULT -->
+<!-- =========================
+     RESULT
+========================= -->
 
-<section class="card hero">
+<div class="card result">
 
-<div class="heroTop">
-
-<div class="eyebrow">
+<div class="smalllabel">
 RECOMMENDED POSITION SIZE
 </div>
-
-<div
-id="rrBadge"
-class="rr"
->
-R:R 1 : 3
-</div>
-
-</div>
-
 
 <div
 id="lot"
@@ -533,6 +675,7 @@ class="lot"
 
 
 <div class="metrics">
+
 
 <div class="metric">
 
@@ -585,35 +728,31 @@ POTENTIAL PROFIT
 
 </div>
 
+
 </div>
 
-</section>
+</div>
 
 
 
-<!-- INTELLIGENCE -->
+<!-- =========================
+     TRADE INTELLIGENCE
+========================= -->
 
-<section class="card">
-
-<div class="head">
+<div class="card">
 
 <div class="title">
 Trade Intelligence
 </div>
 
-<div class="caption">
-Quick Check
-</div>
-
-</div>
-
 
 <div class="metrics">
+
 
 <div class="metric">
 
 <span>
-RISK PER PIP
+RISK / PIP
 </span>
 
 <strong id="riskpip">
@@ -630,65 +769,76 @@ RISK : REWARD
 </span>
 
 <strong
-id="rrText"
-style="color:var(--green)"
+class="green"
+id="rr"
 >
 1 : 3.00
 </strong>
 
 </div>
 
+
 </div>
 
-</section>
+</div>
 
 
 
-<!-- GOLD WARNING -->
+<!-- =========================
+     GOLD
+========================= -->
 
-<section
+<div
 id="gold"
-class="card alert"
-style="display:none"
+class="card"
 >
 
 <div class="title">
-⚠️ XAUUSD uses different specifications
+⚠️ XAUUSD
 </div>
 
-<p class="note">
+<div class="note">
 
-Gold is not a standard forex pair.
+Gold uses broker-specific tick and contract specifications.
 
-Contract size, tick size and tick value can vary by broker.
+For XAUUSD, always check your MT5 symbol specification rather than
+using a normal forex pip calculation.
 
-Check the XAUUSD specification in MT5 before calculating your position.
+</div>
 
-</p>
-
-</section>
-
+</div>
 
 
-<!-- PROFESSIONAL NOTE -->
 
-<section class="card">
+<!-- =========================
+     PROFESSIONAL RULE
+========================= -->
+
+<div class="card">
 
 <div class="title">
 Professional Rule
 </div>
 
-<p class="note">
+<div class="note">
 
-Choose your maximum dollar risk first.
+Your account balance determines your maximum risk.
 
-Your position size should adapt to your stop-loss distance — not the other way around.
+The calculator automatically risks
+<strong style="color:#37e6a4;">
+0.3%
+</strong>
+of your account balance per trade.
 
-Always verify the final lot size against your broker's MT5 contract specifications.
+Your position size then adapts to your stop-loss distance.
 
-</p>
+A wider stop produces a smaller lot size,
+while a tighter stop produces a larger lot size.
 
-</section>
+</div>
+
+</div>
+
 
 
 <div class="footer">
@@ -697,385 +847,867 @@ ENOCH EINSTEIN FX • TRADE WITH A PLAN, NOT EMOTION.
 
 </div>
 
-</main>
+</div>
 
 
 
 <script>
 
-const API =
-"https://open.er-api.com/v6/latest/";
 
-const $ =
-id => document.getElementById(id);
+/* ==========================================
+   SETTINGS
+========================================== */
+
+const API="https://open.er-api.com/v6/latest/";
+
+const RISK_PERCENT=0.003;
+
+const MAX_MY_PAIRS=4;
 
 
+/* ==========================================
+   AVAILABLE FOREX PAIRS
+========================================== */
 
-async function getRates(currency){
+const PAIRS=[
 
-const response =
-await fetch(
-API + currency,
-{
-cache:"no-store"
+/* MAJORS */
+
+"EURUSD",
+"GBPUSD",
+"USDJPY",
+"USDCHF",
+"AUDUSD",
+"NZDUSD",
+"USDCAD",
+
+/* POPULAR CROSSES */
+
+"EURGBP",
+"EURJPY",
+"EURCHF",
+"EURAUD",
+"EURCAD",
+"EURNZD",
+
+"GBPJPY",
+"GBPCHF",
+"GBPAUD",
+"GBPCAD",
+"GBPNZD",
+
+"AUDJPY",
+"AUDCHF",
+"AUDCAD",
+"AUDNZD",
+
+"NZDJPY",
+"NZDCHF",
+"NZDCAD",
+
+"CADJPY",
+"CHFJPY",
+
+/* OTHER COMMONLY TRADED */
+
+"USDSGD",
+"USDHKD",
+"USDNOK",
+"USDSEK",
+"USDDKK",
+"USDZAR",
+"USDMXN",
+"USDTRY",
+
+"EURNOK",
+"EURSEK",
+
+"GBPNOK",
+"GBPSEK",
+
+/* GOLD */
+
+"XAUUSD"
+
+];
+
+
+/* ==========================================
+   FORMAT PAIR NAME
+========================================== */
+
+function formatPair(pair){
+
+if(pair==="XAUUSD")
+return "XAU/USD";
+
+return pair.substring(0,3)+"/"+pair.substring(3,6);
+
 }
+
+
+/* ==========================================
+   LOAD SAVED PAIRS
+========================================== */
+
+function getSavedPairs(){
+
+try{
+
+const saved=
+JSON.parse(
+localStorage.getItem("enochMyPairs")
 );
 
-if(!response.ok)
-throw Error();
+if(
+Array.isArray(saved) &&
+saved.length>0
+){
 
-const data =
+return saved
+.filter(pair=>PAIRS.includes(pair))
+.slice(0,MAX_MY_PAIRS);
+
+}
+
+}catch(error){}
+
+return [
+"EURUSD",
+"GBPUSD",
+"USDJPY",
+"XAUUSD"
+];
+
+}
+
+
+/* ==========================================
+   BUILD PAIR MANAGER
+========================================== */
+
+function buildPairManager(){
+
+const grid=
+document.getElementById("pairGrid");
+
+grid.innerHTML="";
+
+const saved=
+getSavedPairs();
+
+
+PAIRS.forEach(pair=>{
+
+const label=
+document.createElement("label");
+
+label.className="pair-option";
+
+const checkbox=
+document.createElement("input");
+
+checkbox.type="checkbox";
+
+checkbox.value=pair;
+
+checkbox.checked=
+saved.includes(pair);
+
+
+checkbox.addEventListener(
+"change",
+updateSelectionCount
+);
+
+
+const text=
+document.createElement("span");
+
+text.textContent=
+formatPair(pair);
+
+
+label.appendChild(checkbox);
+
+label.appendChild(text);
+
+grid.appendChild(label);
+
+});
+
+
+updateSelectionCount();
+
+}
+
+
+/* ==========================================
+   UPDATE SELECTION COUNT
+========================================== */
+
+function updateSelectionCount(){
+
+const checked=
+document.querySelectorAll(
+"#pairGrid input[type='checkbox']:checked"
+);
+
+const count=
+checked.length;
+
+
+document.getElementById(
+"selectionCount"
+).textContent=
+count+" / "+MAX_MY_PAIRS+" selected";
+
+
+/* Prevent more than 4 */
+
+document
+.querySelectorAll(
+"#pairGrid input[type='checkbox']"
+)
+.forEach(box=>{
+
+if(
+count>=MAX_MY_PAIRS &&
+!box.checked
+){
+
+box.disabled=true;
+
+}else{
+
+box.disabled=false;
+
+}
+
+});
+
+}
+
+
+/* ==========================================
+   SAVE MY PAIRS
+========================================== */
+
+function saveMyPairs(){
+
+const selected=
+Array.from(
+document.querySelectorAll(
+"#pairGrid input[type='checkbox']:checked"
+)
+)
+.map(box=>box.value);
+
+
+if(selected.length===0){
+
+alert(
+"Please select at least one currency pair."
+);
+
+return;
+
+}
+
+
+if(selected.length>MAX_MY_PAIRS){
+
+alert(
+"You can select a maximum of 4 pairs."
+);
+
+return;
+
+}
+
+
+/* Save to browser */
+
+localStorage.setItem(
+"enochMyPairs",
+JSON.stringify(selected)
+);
+
+
+/* Update interface */
+
+renderMyPairs();
+
+populateInstrumentSelect();
+
+
+/* Close manager */
+
+document
+.getElementById("pairManager")
+.classList.remove("show");
+
+
+/* Select first saved pair */
+
+document.getElementById("symbol").value=
+selected[0];
+
+
+/* Gold visibility */
+
+updateGoldVisibility();
+
+
+/* Status */
+
+document.getElementById("status").textContent=
+"✓ Your trading pairs have been saved.";
+
+
+/* Recalculate */
+
+calculate();
+
+}
+
+
+/* ==========================================
+   SHOW / HIDE PAIR MANAGER
+========================================== */
+
+function togglePairManager(){
+
+const manager=
+document.getElementById("pairManager");
+
+manager.classList.toggle("show");
+
+}
+
+
+/* ==========================================
+   DISPLAY MY PAIRS
+========================================== */
+
+function renderMyPairs(){
+
+const container=
+document.getElementById("quickPairs");
+
+container.innerHTML="";
+
+const saved=
+getSavedPairs();
+
+
+saved.forEach(pair=>{
+
+const button=
+document.createElement("button");
+
+button.className="quick-pair";
+
+button.textContent=
+formatPair(pair);
+
+
+button.onclick=function(){
+
+document.getElementById("symbol").value=
+pair;
+
+
+/* Highlight selected */
+
+document
+.querySelectorAll(".quick-pair")
+.forEach(btn=>{
+btn.classList.remove("active");
+});
+
+button.classList.add("active");
+
+
+updateGoldVisibility();
+
+calculate();
+
+};
+
+
+container.appendChild(button);
+
+});
+
+
+}
+
+
+/* ==========================================
+   POPULATE INSTRUMENT SELECT
+========================================== */
+
+function populateInstrumentSelect(){
+
+const select=
+document.getElementById("symbol");
+
+const saved=
+getSavedPairs();
+
+
+select.innerHTML="";
+
+
+/* MY PAIRS */
+
+const myGroup=
+document.createElement("optgroup");
+
+myGroup.label=
+"⭐ MY TRADING PAIRS";
+
+
+saved.forEach(pair=>{
+
+const option=
+document.createElement("option");
+
+option.value=pair;
+
+option.textContent=
+formatPair(pair);
+
+myGroup.appendChild(option);
+
+});
+
+
+select.appendChild(myGroup);
+
+
+/* ALL PAIRS */
+
+const allGroup=
+document.createElement("optgroup");
+
+allGroup.label=
+"ALL AVAILABLE PAIRS";
+
+
+PAIRS
+.filter(pair=>!saved.includes(pair))
+.forEach(pair=>{
+
+const option=
+document.createElement("option");
+
+option.value=pair;
+
+option.textContent=
+formatPair(pair);
+
+allGroup.appendChild(option);
+
+});
+
+
+select.appendChild(allGroup);
+
+}
+
+
+/* ==========================================
+   FX RATE FUNCTIONS
+========================================== */
+
+async function rates(currency){
+
+const response=
+await fetch(
+API+currency,
+{cache:"no-store"}
+);
+
+const data=
 await response.json();
 
-if(data.result !== "success")
-throw Error();
+
+if(data.result!=="success"){
+
+throw new Error(
+"Rate service unavailable"
+);
+
+}
+
 
 return data.rates;
 
 }
 
 
+async function convert(value,from,to){
 
-async function convert(
-value,
-from,
-to
-){
-
-if(from === to)
+if(from===to)
 return value;
 
-const rates =
-await getRates(from);
+const r=
+await rates(from);
 
-return value * rates[to];
+if(!r[to])
+throw new Error(
+"Currency not supported"
+);
+
+return value*r[to];
 
 }
 
 
+/* ==========================================
+   UPDATE AUTOMATIC RISK
+========================================== */
+
+function updateRisk(){
+
+const balance=
+Number(
+document.getElementById("balance").value
+);
+
+
+if(balance>0){
+
+const risk=
+balance*RISK_PERCENT;
+
+
+document.getElementById(
+"riskAmount"
+).textContent=
+"$"+risk.toFixed(2);
+
+
+}else{
+
+document.getElementById(
+"riskAmount"
+).textContent=
+"$0.00";
+
+}
+
+}
+
+
+/* ==========================================
+   GOLD DISPLAY
+========================================== */
+
+function updateGoldVisibility(){
+
+const symbol=
+document.getElementById("symbol").value;
+
+
+document.getElementById(
+"gold"
+).style.display=
+symbol==="XAUUSD"
+?"block"
+:"none";
+
+}
+
+
+/* ==========================================
+   CALCULATE POSITION SIZE
+========================================== */
 
 async function calculate(){
 
-const symbol =
-$("symbol").value;
+const symbol=
+document.getElementById("symbol").value;
 
-const risk =
-+$("risk").value;
+const balance=
+Number(
+document.getElementById("balance").value
+);
 
-const sl =
-+$("sl").value;
+const sl=
+Number(
+document.getElementById("sl").value
+);
 
-const tp =
-+$("tp").value;
+const tp=
+Number(
+document.getElementById("tp").value
+);
 
-const account =
-$("acct").value;
+const account=
+document.getElementById("acct").value;
 
+
+/* VALIDATION */
 
 if(
-risk <= 0 ||
-sl <= 0 ||
-tp <= 0
+balance<=0 ||
+sl<=0 ||
+tp<=0
 ){
 
-$("status").textContent =
-"Enter positive values.";
+alert(
+"Enter a valid account balance, stop loss and take profit."
+);
 
 return;
 
 }
+
+
+/* AUTOMATIC 0.3% RISK */
+
+const risk=
+balance*RISK_PERCENT;
 
 
 /* GOLD */
 
-if(symbol === "XAUUSD"){
+if(symbol==="XAUUSD"){
 
-$("status").textContent =
+document.getElementById(
+"status"
+).textContent=
 "XAUUSD needs broker-specific tick and contract information.";
 
-$("gold").style.display =
-"block";
+
+document.getElementById(
+"riskAmount"
+).textContent=
+"$"+risk.toFixed(2);
+
 
 return;
 
 }
 
-$("gold").style.display =
-"none";
-
 
 try{
 
-$("status").textContent =
-"Fetching current FX rate…";
+
+document.getElementById(
+"status"
+).textContent=
+"Fetching current FX rate...";
 
 
-const base =
-symbol.slice(0,3);
+const base=
+symbol.substring(0,3);
 
-const quote =
-symbol.slice(3,6);
-
-
-const rates =
-await getRates(base);
+const quote=
+symbol.substring(3,6);
 
 
-const price =
-rates[quote];
+/* GET LIVE RATE */
+
+const r=
+await rates(base);
 
 
-const pipSize =
-quote === "JPY"
-? .01
-: .0001;
+const price=
+r[quote];
 
 
-/*
+if(!price){
 
-Standard forex contract:
+throw new Error(
+"Pair unavailable"
+);
 
-100,000 units
-
-*/
-
-const pipQuote =
-pipSize * 100000;
+}
 
 
-/*
+/* PIP SIZE */
 
-Convert pip value into
-account currency.
+const pipSize=
+quote==="JPY"
+?0.01
+:0.0001;
 
-*/
 
-const pipAccount =
+/* PIP VALUE FOR 1 STANDARD LOT */
+
+const pipValueQuote=
+pipSize*100000;
+
+
+/* CONVERT TO ACCOUNT CURRENCY */
+
+const pipValueAccount=
 await convert(
-pipQuote,
+pipValueQuote,
 quote,
 account
 );
 
 
-/*
+/* MONEY RISKED PER PIP */
 
-Money allowed per pip.
-
-Example:
-
-$30 risk / 10 pips
-= $3 per pip
-
-*/
-
-const moneyPerPip =
-risk / sl;
+const moneyPerPip=
+risk/sl;
 
 
-/*
+/* RAW LOT SIZE */
 
-Calculate raw lot size.
-
-*/
-
-const rawLot =
-moneyPerPip /
-pipAccount;
+const rawLot=
+moneyPerPip/pipValueAccount;
 
 
-/*
+/* ROUND DOWN TO 0.01 LOT */
 
-Round down to nearest
-0.01 lot.
-
-*/
-
-const lot =
-Math.max(
-.01,
-Math.floor(rawLot / .01) * .01
+const lot=Math.max(
+0.01,
+Math.floor(rawLot/0.01)*0.01
 );
 
 
-/*
+/* ACTUAL RISK */
 
-Actual risk based on
-rounded lot size.
-
-*/
-
-const actualRisk =
-lot * sl * pipAccount;
+const actualRisk=
+lot*sl*pipValueAccount;
 
 
-/*
+/* POTENTIAL PROFIT */
 
-Potential profit.
-
-*/
-
-const profit =
-lot * tp * pipAccount;
-
-
-const ratio =
-tp / sl;
-
+const potentialProfit=
+lot*tp*pipValueAccount;
 
 
 /* DISPLAY */
 
-$("lot").textContent =
-lot.toFixed(2) + " LOT";
+document.getElementById(
+"lot"
+).textContent=
+lot.toFixed(2)+" LOT";
 
 
-$("price").textContent =
-price.toFixed(5);
+document.getElementById(
+"price"
+).textContent=
+quote==="JPY"
+?price.toFixed(3)
+:price.toFixed(5);
 
 
-$("pipvalue").textContent =
-account + " " +
-pipAccount.toFixed(4);
+document.getElementById(
+"pipvalue"
+).textContent=
+account+" "+
+pipValueAccount.toFixed(4);
 
 
-$("actualrisk").textContent =
-account + " " +
+document.getElementById(
+"actualrisk"
+).textContent=
+account+" "+
 actualRisk.toFixed(2);
 
 
-$("profit").textContent =
-account + " " +
-profit.toFixed(2);
+document.getElementById(
+"profit"
+).textContent=
+account+" "+
+potentialProfit.toFixed(2);
 
 
-$("riskpip").textContent =
-account + " " +
+document.getElementById(
+"riskpip"
+).textContent=
+account+" "+
 moneyPerPip.toFixed(2);
 
 
-$("rrText").textContent =
-"1 : " +
-ratio.toFixed(2);
+document.getElementById(
+"rr"
+).textContent=
+"1 : "+
+(tp/sl).toFixed(2);
 
 
-$("rrBadge").textContent =
-"R:R 1 : " +
-ratio.toFixed(2);
+document.getElementById(
+"riskAmount"
+).textContent=
+"$"+
+risk.toFixed(2);
 
 
-$("status").textContent =
-"✓ Live FX rate updated at " +
+document.getElementById(
+"status"
+).textContent=
+"✓ Risk set automatically to 0.3% of account balance • "+
+"Rate updated at "+
 new Date().toLocaleTimeString();
-
-
-$("status").className =
-"status ok";
-
-
-/*
-
-Remember the user's
-last settings.
-
-*/
-
-localStorage.setItem(
-"eefx",
-JSON.stringify({
-
-symbol:symbol,
-risk:risk,
-sl:sl,
-tp:tp,
-account:account
-
-})
-);
 
 
 }catch(error){
 
-$("status").textContent =
-"Unable to fetch live FX rates. Check your internet connection.";
+console.error(error);
 
-$("status").className =
-"status";
-
-}
-
-}
-
-
-
-/* BUTTON */
-
-$("calculate").onclick =
-calculate;
-
-
-
-/* SYMBOL CHANGE */
-
-$("symbol").onchange =
-function(){
-
-if(
-$("symbol").value === "XAUUSD"
-){
-
-$("gold").style.display =
-"block";
-
-}else{
-
-$("gold").style.display =
-"none";
+document.getElementById(
+"status"
+).textContent=
+"Unable to fetch the live rate for this pair.";
 
 }
 
-};
+}
 
 
+/* ==========================================
+   EVENT LISTENERS
+========================================== */
 
-/* LOAD SAVED SETTINGS */
-
-try{
-
-const saved =
-JSON.parse(
-localStorage.getItem("eefx") || "{}"
+document
+.getElementById("balance")
+.addEventListener(
+"input",
+updateRisk
 );
 
-if(saved.symbol)
-$("symbol").value =
-saved.symbol;
 
-if(saved.risk)
-$("risk").value =
-saved.risk;
+document
+.getElementById("symbol")
+.addEventListener(
+"change",
+function(){
 
-if(saved.sl)
-$("sl").value =
-saved.sl;
+updateGoldVisibility();
 
-if(saved.tp)
-$("tp").value =
-saved.tp;
+calculate();
 
-if(saved.account)
-$("acct").value =
-saved.account;
-
-}catch(error){}
+}
+);
 
 
+/* ==========================================
+   INITIALIZE
+========================================== */
 
-/* INITIAL CALCULATION */
+buildPairManager();
+
+renderMyPairs();
+
+populateInstrumentSelect();
+
+updateRisk();
+
+updateGoldVisibility();
 
 calculate();
 
 </script>
 
 </body>
-</html>
+  </html>
